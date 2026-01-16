@@ -15,11 +15,8 @@ const getGlobalEnvironment:GlobalEnvironmentChecker = function ():string {
 }
 
 const hasSuffix: SuffixChecker = function (value: string, suffix: string): boolean {
-
   const pattern = new RegExp(`_${suffix}$`);
-  const result = pattern.test(str);
-
-  return /_[^_]+$/.test(suffix);
+  return pattern.test(value);
 }
 
 const getEnv = function (
@@ -32,8 +29,9 @@ const getEnv = function (
     const global = globalEnvCallback();
     let env = null;
     console.log("globall envvv", global, "keyy", key)
-    const result = suffixCallback(global)
-    if (suffixCallback(global)) {
+    const result = suffixCallback(global, key)
+    console.log("result", result)
+    if (suffixCallback(global,key)) {
       env = process.env[`${key}_${global}`];
     } else {
       env = process.env[key];
