@@ -2,8 +2,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import { EnvConfig } from "./types/env.types.js";
 
-function getEnv(environment: string):string {
+function getEnv():string {
   try {
+
+    const env = process.env.ENVIRONMENT
+    if(!env) throw new Error(`No environmet was found`)
 
   } catch (error) {
     throw error;
