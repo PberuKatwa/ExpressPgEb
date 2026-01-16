@@ -13,6 +13,7 @@ const port:number = Number(envConfig.port);
 const startServer = async function () {
   try {
 
+    logger.warn(`Attempting to start the server on port:${port} and environment:${envConfig.environment}`)
     const pgPool = await connectPostgres(envConfig);
     await initializeModels(pgPool);
 
@@ -53,6 +54,8 @@ const startServer = async function () {
       "0.0.0.0", function () {
       logger.info(`Server is listening in on port ${port}`);
     });
+
+    logger.info(`Successfully started server on environment:${envConfig.environment} and port:${envConfig.port}`)
 
   } catch (error) {
     logger.error(`Error in server start up`, error)
