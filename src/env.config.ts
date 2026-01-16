@@ -14,7 +14,7 @@ const getGlobalEnv:GlobalEnvironmentChecker = function ():string {
   }
 }
 
-function hasSuffix(global:string):boolean {
+const hasSuffix:GlobalEnvironmentSuffix = function (global:string):boolean {
     return /_[^_]+$/.test(global);
 }
 
