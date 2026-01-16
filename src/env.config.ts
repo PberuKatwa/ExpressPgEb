@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { EnvConfig } from "./types/env.types.js";
 
+
 function getGlobalEnv():string {
   try {
 

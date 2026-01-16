@@ -7,3 +7,5 @@ export interface EnvConfig{
   pgPassword: string,
   pgDatabase: string
 }
+
+export type SuffixChecker = function(){return boolean}
