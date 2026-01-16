@@ -18,13 +18,16 @@ const hasSuffix:SuffixChecker = function (suffix:string):boolean {
     return /_[^_]+$/.test(suffix);
 }
 
-const getEnv = function (globalEnvCallback,suffix, key: string
+const getEnv = function (
+  globalEnvCallback: GlobalEnvironmentChecker,
+  suffixCallback: SuffixChecker,
+  key: string
 ): string {
   try {
 
-    const global = globalEnv();
+    const global = globalEnvCallback();
     let env = null;
-    if (suffix(global)) {
+    if (suffixCallback(global)) {
       env = process.env[`${key}_${global}`];
     } else {
       env = process.env[key];
