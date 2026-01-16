@@ -21,14 +21,12 @@ const hasSuffix: SuffixChecker = function (value: string, suffix: string): boole
 
 const getEnv = function (
   globalEnvCallback: GlobalEnvironmentChecker,
-  suffixCallback: SuffixChecker,
   key: string
 ): string {
   try {
 
     const global = globalEnvCallback();
     const combinedKey = `${key}_${global}`
-    console.log("globall envvv", global, "keyy", key ,"combined", combinedKey)
     const env = process.env[combinedKey]
 
     if (!env) throw new Error(`No env for key:${key} was found`);
@@ -41,10 +39,10 @@ const getEnv = function (
 
 export const envConfig:EnvConfig = {
   environment:getGlobalEnvironment(),
-  port: getEnv(getGlobalEnvironment,hasSuffix,"PORT"),
-  pgHost: getEnv(getGlobalEnvironment,hasSuffix,"PG_HOST"),
-  pgPort: getEnv(getGlobalEnvironment,hasSuffix,"PG_PORT"),
-  pgUser: getEnv(getGlobalEnvironment,hasSuffix,"PG_USER"),
-  pgPassword: getEnv(getGlobalEnvironment,hasSuffix,"PG_PASSWORD"),
-  pgDatabase: getEnv(getGlobalEnvironment,hasSuffix,"PG_DATABASE")
+  port: getEnv(getGlobalEnvironment,"PORT"),
+  pgHost: getEnv(getGlobalEnvironment,"PG_HOST"),
+  pgPort: getEnv(getGlobalEnvironment,"PG_PORT"),
+  pgUser: getEnv(getGlobalEnvironment,"PG_USER"),
+  pgPassword: getEnv(getGlobalEnvironment,"PG_PASSWORD"),
+  pgDatabase: getEnv(getGlobalEnvironment,"PG_DATABASE")
 }
