@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import { EnvConfig, GlobalEnvironmentSuffix, GlobalEnvironmentChecker } from "./types/env.types.js";
+import { EnvConfig, SuffixChecker, GlobalEnvironmentChecker } from "./types/env.types.js";
 
 
 const getGlobalEnv:GlobalEnvironmentChecker = function ():string {
@@ -14,8 +14,8 @@ const getGlobalEnv:GlobalEnvironmentChecker = function ():string {
   }
 }
 
-const hasSuffix:GlobalEnvironmentSuffix = function (global:string):boolean {
-    return /_[^_]+$/.test(global);
+const hasSuffix:SuffixChecker = function (suffix:string):boolean {
+    return /_[^_]+$/.test(suffix);
 }
 
 function getEnv(globalEnv,suffix, key: string
