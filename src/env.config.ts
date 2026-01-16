@@ -13,7 +13,19 @@ function getGlobalEnv():string {
   }
 }
 
-function getEnv(key: string):string {
+// function getEnv(key: string):string {
+//   try {
+
+//     const env = process.env[key];
+//     if (!env) throw new Error(`No env for key:${key} was found`);
+//     return env
+
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
+function getEnv( globalEnv, key: string ):string {
   try {
 
     const env = process.env[key];
