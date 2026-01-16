@@ -18,7 +18,7 @@ const hasSuffix:SuffixChecker = function (suffix:string):boolean {
     return /_[^_]+$/.test(suffix);
 }
 
-function getEnv(globalEnv,suffix, key: string
+const getEnv = function (globalEnvCallback,suffix, key: string
 ): string {
   try {
 
