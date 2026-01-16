@@ -8,4 +8,5 @@ export interface EnvConfig{
   pgDatabase: string
 }
 
-export type GlobalEnvironmentChecker = () => boolean;
+export type GlobalEnvironmentSuffix = () => boolean;
+export type GlobalEnvironmentChecker = () => string;
