@@ -3,7 +3,7 @@ dotenv.config();
 import { EnvConfig, GlobalEnvironmentSuffix, GlobalEnvironmentChecker } from "./types/env.types.js";
 
 
-const getGlobalEnv = function ():string {
+const getGlobalEnv:GlobalEnvironmentChecker = function ():string {
   try {
 
     const env = process.env.ENVIRONMENT
