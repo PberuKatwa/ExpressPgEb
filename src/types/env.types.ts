@@ -8,4 +8,4 @@ export interface EnvConfig{
   pgDatabase: string
 }
 
-export type SuffixChecker = function(){return boolean}
+export type GlobalChecker = () => boolean;
