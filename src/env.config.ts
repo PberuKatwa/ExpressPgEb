@@ -25,13 +25,18 @@ function getGlobalEnv():string {
 //   }
 // }
 
-function hasSuffix(str) {
-    return /_[^_]+$/.test(str);
+function hasSuffix(global:string) {
+    return /_[^_]+$/.test(global);
 }
 
-function getEnv(globalEnv, key: string
+function getEnv(globalEnv,suffix, key: string
 ): string {
   try {
+
+    const global = globalEnv();
+    if (suffix(global)) {
+
+    }
 
     const env = process.env[key];
     if (!env) throw new Error(`No env for key:${key} was found`);
