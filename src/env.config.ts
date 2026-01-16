@@ -50,10 +50,10 @@ function getEnv(globalEnv,suffix, key: string
 
 export const envConfig:EnvConfig = {
   environment:getEnv(getGlobalEnv,hasSuffix,"ENVIRONMENT"),
-  port: getEnv("PORT"),
-  pgHost: getEnv("PG_HOST"),
-  pgPort: getEnv("PG_PORT"),
-  pgUser: getEnv("PG_USER"),
+  port: getEnv(getGlobalEnv,hasSuffix,"PORT"),
+  pgHost: getEnv(getGlobalEnv,hasSuffix,"PG_HOST"),
+  pgPort: getEnv(getGlobalEnv,hasSuffix,"PG_PORT"),
+  pgUser: getEnv(getGlobalEnv,hasSuffix,"PG_USER"),
   pgPassword: getEnv("PG_PASSWORD"),
   pgDatabase: getEnv("PG_DATABASE")
 }
