@@ -25,7 +25,12 @@ function getGlobalEnv():string {
 //   }
 // }
 
-function getEnv( globalEnv, key: string ):string {
+function hasSuffix(str) {
+    return /_[^_]+$/.test(str);
+}
+
+function getEnv(globalEnv, key: string
+): string {
   try {
 
     const env = process.env[key];
