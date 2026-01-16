@@ -8,6 +8,6 @@ export interface EnvConfig{
   pgDatabase: string
 }
 
-export type SuffixChecker = (global:string) => boolean;
+export type SuffixChecker = (suffix:string) => boolean;
 export type GlobalEnvironmentChecker = () => string;
 export type GetEnv = (globalEnv:GlobalEnvironmentChecker, suffix:SuffixChecker, key: string) => string;
