@@ -3,7 +3,7 @@ dotenv.config();
 import { EnvConfig, SuffixChecker, GlobalEnvironmentChecker } from "./types/env.types.js";
 
 
-const getGlobalEnv:GlobalEnvironmentChecker = function ():string {
+const getGlobalEnvironment:GlobalEnvironmentChecker = function ():string {
   try {
 
     const env = process.env.ENVIRONMENT
@@ -41,11 +41,11 @@ const getEnv = function (
 }
 
 export const envConfig:EnvConfig = {
-  environment:getEnv(getGlobalEnv,hasSuffix,"ENVIRONMENT"),
-  port: getEnv(getGlobalEnv,hasSuffix,"PORT"),
-  pgHost: getEnv(getGlobalEnv,hasSuffix,"PG_HOST"),
-  pgPort: getEnv(getGlobalEnv,hasSuffix,"PG_PORT"),
-  pgUser: getEnv(getGlobalEnv,hasSuffix,"PG_USER"),
-  pgPassword: getEnv(getGlobalEnv,hasSuffix,"PG_PASSWORD"),
-  pgDatabase: getEnv(getGlobalEnv,hasSuffix,"PG_DATABASE")
+  environment:getEnv(getGlobalEnvironment,hasSuffix,"ENVIRONMENT"),
+  port: getEnv(getGlobalEnvironment,hasSuffix,"PORT"),
+  pgHost: getEnv(getGlobalEnvironment,hasSuffix,"PG_HOST"),
+  pgPort: getEnv(getGlobalEnvironment,hasSuffix,"PG_PORT"),
+  pgUser: getEnv(getGlobalEnvironment,hasSuffix,"PG_USER"),
+  pgPassword: getEnv(getGlobalEnvironment,hasSuffix,"PG_PASSWORD"),
+  pgDatabase: getEnv(getGlobalEnvironment,hasSuffix,"PG_DATABASE")
 }
