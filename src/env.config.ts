@@ -55,5 +55,5 @@ export const envConfig:EnvConfig = {
   pgPort: getEnv(getGlobalEnv,hasSuffix,"PG_PORT"),
   pgUser: getEnv(getGlobalEnv,hasSuffix,"PG_USER"),
   pgPassword: getEnv(getGlobalEnv,hasSuffix,"PG_PASSWORD"),
-  pgDatabase: getEnv("PG_DATABASE")
+  pgDatabase: getEnv(getGlobalEnv,hasSuffix,"PG_DATABASE")
 }
