@@ -8,7 +8,7 @@ export class Properties{
   async createTable():Promise<string> {
     try {
 
-      logger.warn(`Atttempting to create properties table.`);
+      logger.warn(`Attempting to create properties table.`);
 
       const query = `
         CREATE TABLE IF NOT EXISTS properties(
