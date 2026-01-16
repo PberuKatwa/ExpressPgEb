@@ -34,11 +34,14 @@ function getEnv(globalEnv,suffix, key: string
   try {
 
     const global = globalEnv();
+    let env = null;
     if (suffix(global)) {
-
+      env = process.env[`${key}_${global}`];
+    } else {
+      env = process.env[key];
     }
 
-    const env = process.env[key];
+    const
     if (!env) throw new Error(`No env for key:${key} was found`);
     return env
 
