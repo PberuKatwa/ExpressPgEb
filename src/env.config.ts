@@ -27,15 +27,10 @@ const getEnv = function (
   try {
 
     const global = globalEnvCallback();
-    let env = null;
-    console.log("globall envvv", global, "keyy", key)
-    const result = suffixCallback(global, key)
-    console.log("result", result)
-    if (suffixCallback(global,key)) {
-      env = process.env[`${key}_${global}`];
-    } else {
-      env = process.env[key];
-    }
+    const combinedKey = `${key}_${global}`
+    console.log("globall envvv", global, "keyy", key ,"combined", combinedKey)
+    const env = process.env[combinedKey]
+
     if (!env) throw new Error(`No env for key:${key} was found`);
     return env
 
@@ -45,7 +40,7 @@ const getEnv = function (
 }
 
 export const envConfig:EnvConfig = {
-  environment:getEnv(getGlobalEnvironment,hasSuffix,"ENVIRONMENT"),
+  environment:getGlobalEnvironment(),
   port: getEnv(getGlobalEnvironment,hasSuffix,"PORT"),
   pgHost: getEnv(getGlobalEnvironment,hasSuffix,"PG_HOST"),
   pgPort: getEnv(getGlobalEnvironment,hasSuffix,"PG_PORT"),
