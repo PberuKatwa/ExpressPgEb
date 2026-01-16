@@ -10,3 +10,4 @@ export interface EnvConfig{
 
 export type GlobalEnvironmentSuffix = (global:string) => boolean;
 export type GlobalEnvironmentChecker = () => string;
+export type GetEnv = (globalEnv:GlobalEnvironmentChecker, suffix:GlobalEnvironmentSuffix, key: string) => string;
