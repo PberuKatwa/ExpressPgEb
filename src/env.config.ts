@@ -27,6 +27,7 @@ const getEnv = function (
 
     const global = globalEnvCallback();
     let env = null;
+    console.log("globall envvv", global)
     if (suffixCallback(global)) {
       env = process.env[`${key}_${global}`];
     } else {
