@@ -40,8 +40,6 @@ function getEnv(globalEnv,suffix, key: string
     } else {
       env = process.env[key];
     }
-
-    const
     if (!env) throw new Error(`No env for key:${key} was found`);
     return env
 
@@ -51,7 +49,7 @@ function getEnv(globalEnv,suffix, key: string
 }
 
 export const envConfig:EnvConfig = {
-  environment:getEnv("ENVIRONMENT"),
+  environment:getEnv(getGlobalEnv,hasSuffix,"ENVIRONMENT"),
   port: getEnv("PORT"),
   pgHost: getEnv("PG_HOST"),
   pgPort: getEnv("PG_PORT"),
