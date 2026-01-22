@@ -12,3 +12,5 @@ node_modules
 
 #Iam trust policy
 ecs-trust-policy.json
+task-definition.json
+secure-aws.json
